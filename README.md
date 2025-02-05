@@ -16,3 +16,21 @@ POST /user/registrate
   "username": "example_user",
   "password": "secure_password"
 }
+
+
+### 2. Получение информации о пользователе
+
+- **Конечная точка:** `/registrate`
+- **Метод:** `POST`
+- **Описание:** Регистрирует нового пользователя.
+- **Тело запроса:**
+  - `user` (RegUser): Данные пользователя, необходимые для регистрации.
+- **Ответ:** Возвращает результат процесса создания пользователя.
+
+#### Пример запроса
+```json
+POST /user/registrate
+{
+  "username": "example_user",
+  "password": "secure_password"
+}
