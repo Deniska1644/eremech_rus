@@ -1,0 +1,11 @@
+fastapi
+sqlalchemy
+asyncpg
+pydantic-settings
+pydantic[email]
+uvicorn
+alembic
+bcrypt
+pytest
+passlib
+pytest-asyncio
