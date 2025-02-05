@@ -9,3 +9,4 @@ bcrypt
 pytest
 passlib
 pytest-asyncio
+httpx
