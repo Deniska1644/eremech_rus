@@ -9,7 +9,7 @@ router = APIRouter(
 )
 
 
-@router.get('/{task_id}')
+@router.get('/{task_id}/get')
 async def get_task(
     task_id: int,
     user_id: int = Depends(authenticate),
@@ -35,7 +35,7 @@ async def create_task(
     return res
 
 
-@router.patch('/{task_id}')
+@router.patch('/{task_id}/update')
 async def patch_task(
     task_id: int,
     task_update: CreateTask,
@@ -45,7 +45,7 @@ async def patch_task(
     return res
 
 
-@router.delete('/{task_id}')
+@router.delete('/{task_id}/delete')
 async def delete_task(
     task_id: int,
     user_id: int = Depends(authenticate)

@@ -77,7 +77,7 @@ class TestTaskHandlers:
 
     async def test_get_task(self, created_task):
         async with httpx.AsyncClient() as client:
-            response = await client.get(f'{self.url}/{created_task}', auth=self.auth)
+            response = await client.get(f'{self.url}/{created_task}/get', auth=self.auth)
             assert response.status_code == 200
             assert response.json().get('title') == self.TEST_TASK.get('title')
             assert response.json().get('description') == self.TEST_TASK.get('description')
@@ -90,13 +90,13 @@ class TestTaskHandlers:
 
     async def test_update_task(self, created_task):
         async with httpx.AsyncClient() as client:
-            response = await client.patch(f'{self.url}/{created_task}', auth=self.auth, json=self.TEST_TASK)
+            response = await client.patch(f'{self.url}/{created_task}/update', auth=self.auth, json=self.TEST_TASK)
             assert response.status_code == 200
             assert response.json().get('status') == 'successful'
 
     async def test_delete_task(self, created_task):
         await asyncio.sleep(1)
         async with httpx.AsyncClient() as client:
-            response = await client.delete(f'{self.url}/{created_task}')
+            response = await client.delete(f'{self.url}/{created_task}/delete',  auth=self.auth)
             assert response.status_code == 200
             assert response.json().get('status') == 'successful'
